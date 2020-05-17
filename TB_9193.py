@@ -40,10 +40,10 @@ def inisialisasi():
 #glVertex3f(-1,  1, -1) #7
 
 
-#LANTAI
+#LANTAI-------------------------------------------------------------------------------------------------------------
 def lantai():
 	#BAWAH
-	glColor3f(0, 0.6, 0)
+	glColor3f(0.5, 0.5, 0.5)
 	glBegin(GL_QUADS)
 	glVertex3f(-3, 0,  -3) #bawah kiri
 	glVertex3f( 3, 0,  -3) #bawah kanan
@@ -72,6 +72,7 @@ def pegangan():
 
 	glFlush()	
 
+#LEMARI-------------------------------------------------------------------------------------------------------------
 def lemari():
 	glColor3f(0.6, 0.1, 0) #warna kawasan adalah hitam
 	# DEPAN, Berlawanan arah dengan jarum jam
@@ -160,9 +161,9 @@ def lemariKawat():
 	glFlush()	
 	
 
-#TEKSTUR MEJA
+#TEKSTUR MEJA-------------------------------------------------------------------------------------------------------------
 def img1():
-    textureSurface = pygame.image.load('c:/Users/MelvinSimahan/Desktop/grafkom/bawah.jpg')
+    textureSurface = pygame.image.load('1.jpg')
     textureData = pygame.image.tostring(textureSurface, "RGBA", 1)
     width = textureSurface.get_width()
     height = textureSurface.get_height()
@@ -181,7 +182,7 @@ def img1():
     return texid
 
 def img2():
-    textureSurface = pygame.image.load('c:/Users/MelvinSimahan/Desktop/grafkom/atas.jpg')
+    textureSurface = pygame.image.load('2.jpg')
     textureData = pygame.image.tostring(textureSurface, "RGBA", 1)
     width = textureSurface.get_width()
     height = textureSurface.get_height()
@@ -200,7 +201,7 @@ def img2():
     return texid
 
 def img3():
-    textureSurface = pygame.image.load('c:/Users/MelvinSimahan/Desktop/grafkom/kiri.jpg')
+    textureSurface = pygame.image.load('3.jpg')
     textureData = pygame.image.tostring(textureSurface, "RGBA", 1)
     width = textureSurface.get_width()
     height = textureSurface.get_height()
@@ -216,10 +217,107 @@ def img3():
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
 
-    return texid	
+    return texid
+
+#GAMBAR KUBUS MEJA
+def kanan():
+    textureSurface = pygame.image.load('kanan.jpg')
+    textureData = pygame.image.tostring(textureSurface, "RGBA", 1)
+    width = textureSurface.get_width()
+    height = textureSurface.get_height()
+
+    glEnable(GL_TEXTURE_2D)
+    texid = glGenTextures(1)
+
+    glBindTexture(GL_TEXTURE_2D, texid)
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData)
+
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT)
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT)
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
+
+    return texid
+
+def kiri():
+    textureSurface = pygame.image.load('kiri.jpg')
+    textureData = pygame.image.tostring(textureSurface, "RGBA", 1)
+    width = textureSurface.get_width()
+    height = textureSurface.get_height()
+
+    glEnable(GL_TEXTURE_2D)
+    texid = glGenTextures(1)
+
+    glBindTexture(GL_TEXTURE_2D, texid)
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData)
+
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT)
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT)
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
+
+    return texid
+
+def atas():
+    textureSurface = pygame.image.load('atas.jpg')
+    textureData = pygame.image.tostring(textureSurface, "RGBA", 1)
+    width = textureSurface.get_width()
+    height = textureSurface.get_height()
+
+    glEnable(GL_TEXTURE_2D)
+    texid = glGenTextures(1)
+
+    glBindTexture(GL_TEXTURE_2D, texid)
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData)
+
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT)
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT)
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
+
+    return texid
+
+def belakang():
+    textureSurface = pygame.image.load('belakang.jpg')
+    textureData = pygame.image.tostring(textureSurface, "RGBA", 1)
+    width = textureSurface.get_width()
+    height = textureSurface.get_height()
+
+    glEnable(GL_TEXTURE_2D)
+    texid = glGenTextures(1)
+
+    glBindTexture(GL_TEXTURE_2D, texid)
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData)
+
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT)
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT)
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
+
+    return texid
+
+def depan():
+    textureSurface = pygame.image.load('citraWajahSaya.jpg')
+    textureData = pygame.image.tostring(textureSurface, "RGBA", 1)
+    width = textureSurface.get_width()
+    height = textureSurface.get_height()
+
+    glEnable(GL_TEXTURE_2D)
+    texid = glGenTextures(1)
+
+    glBindTexture(GL_TEXTURE_2D, texid)
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData)
+
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT)
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT)
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
+
+    return texid			
 
 
-#MEJA
+
+#MEJA-------------------------------------------------------------------------------------------------------------
 def gambarKubusKawat():
 	glColor3f(0,0,0) #warna kawasan adalah hitam
 	# DEPAN, Berlawanan arah dengan jarum jam
@@ -697,51 +795,51 @@ def gambarKubus3():
     
 	glFlush ()
 
-#4 KUBUS DI MEJA
+#4 KUBUS DI MEJA-------------------------------------------------------------------------------------------------------------
 def benda1():
-	glColor3f(1, 0, 0) #warna kawasan adalah hitam
+	depan() #warna kawasan adalah hitam
 	# DEPAN, Berlawanan arah dengan jarum jam
 	glBegin(GL_QUADS)
-	glVertex3f(0, 1,  -0.1) #6
-	glVertex3f( 0.5, 1,  -0.1) #3
-	glVertex3f( 0.5,  1.5,  -0.1) #0
-	glVertex3f(0,  1.5,  -0.1) #4
+	glTexCoord2f(0.0, 0.0); glVertex3f(0, 1,  -0.1) #6
+	glTexCoord2f(1.0, 0.0); glVertex3f( 0.5, 1,  -0.1) #3
+	glTexCoord2f(1.0, 1.0); glVertex3f( 0.5,  1.5,  -0.1) #0
+	glTexCoord2f(0.0, 1.0); glVertex3f(0,  1.5,  -0.1) #4
 	glEnd()
 	
 	# BELAKANG
-	glColor3f(1, 0, 0)
+	belakang()
 	glBegin(GL_QUADS)
-	glVertex3f(0, 1,  -0.5) #6
-	glVertex3f( 0.5, 1,  -0.5) #3
-	glVertex3f( 0.5,  1.5,  -0.5) #0
-	glVertex3f(0,  1.5,  -0.5) #4
+	glTexCoord2f(0.0, 0.0); glVertex3f(0, 1,  -0.5) #6
+	glTexCoord2f(1.0, 0.0); glVertex3f( 0.5, 1,  -0.5) #3
+	glTexCoord2f(1.0, 1.0); glVertex3f( 0.5,  1.5,  -0.5) #0
+	glTexCoord2f(0.0, 1.0); glVertex3f(0,  1.5,  -0.5) #4
 	glEnd()
 	
 	# KIRI
-	glColor3f(1, 0, 0)
+	kiri()
 	glBegin(GL_QUADS)
-	glVertex3f(0, 1.5,  -0.1) #6
-	glVertex3f(0,  1,  -0.1) #4
-	glVertex3f(0,  1, -0.5) #7
-	glVertex3f(0, 1.5, -0.5) #5
+	glTexCoord2f(0.0, 0.0); glVertex3f(0, 1.5,  -0.1) #6
+	glTexCoord2f(1.0, 0.0); glVertex3f(0,  1,  -0.1) #4
+	glTexCoord2f(1.0, 1.0); glVertex3f(0,  1, -0.5) #7
+	glTexCoord2f(0.0, 1.0); glVertex3f(0, 1.5, -0.5) #5
 	glEnd();
 	
 	# KANAN
-	glColor3f(1, 0, 0)
+	kanan()
 	glBegin(GL_QUADS)
-	glVertex3f( 0.5, 1.5, -0.5) #2
-	glVertex3f( 0.5,  1, -0.5) #1
-	glVertex3f( 0.5,  1,  -0.1) #0
-	glVertex3f( 0.5, 1.5,  -0.1) #3
+	glTexCoord2f(0.0, 0.0); glVertex3f( 0.5, 1.5, -0.5) #2
+	glTexCoord2f(1.0, 0.0); glVertex3f( 0.5,  1, -0.5) #1
+	glTexCoord2f(1.0, 1.0); glVertex3f( 0.5,  1,  -0.1) #0
+	glTexCoord2f(0.0, 1.0); glVertex3f( 0.5, 1.5,  -0.1) #3
 	glEnd()
-	
+
 	#ATAS
-	glColor3f(1, 0, 0)
+	atas()
 	glBegin(GL_QUADS)
-	glVertex3f(0,  1.5,  -0.1) #4
-	glVertex3f( 0.5,  1.5,  -0.1) #0
-	glVertex3f( 0.5,  1.5, -0.5) #1
-	glVertex3f(0,  1.5, -0.5) #7
+	glTexCoord2f(0.0, 0.0); glVertex3f(0,  1.5,  -0.1) #4
+	glTexCoord2f(1.0, 0.0); glVertex3f( 0.5,  1.5,  -0.1) #0
+	glTexCoord2f(1.0, 1.0); glVertex3f( 0.5,  1.5, -0.5) #1
+	glTexCoord2f(0.0, 1.0); glVertex3f(0,  1.5, -0.5) #7
 	glEnd()
     
 	glFlush ()
@@ -1186,42 +1284,42 @@ def main():
         if keys["kanan"] == True:
             glPushMatrix()
             if nilai_X < 1.5:
-                nilai_X += 0.01 # tambah nilai X
+                nilai_X += 0.05 # tambah nilai X
                 glTranslatef(nilai_X, 0, 0)
             glPopMatrix()
 
         if keys["kiri"] == True:		
             glPushMatrix()
             if nilai_X > -1:			
-                nilai_X -= 0.01 # kurangi nilai X 
+                nilai_X -= 0.05 # kurangi nilai X 
                 glTranslatef(nilai_X, 0, 0)
             glPopMatrix()		
 
-        if keys["depan"] == True:
+        if keys["belakang"] == True:
             glPushMatrix()
             if nilai_Z < 1.1:			
-                nilai_Z += 0.01 # tambah nilai z
+                nilai_Z += 0.05 # tambah nilai z
                 glTranslatef(0, 0, nilai_Z)
             glPopMatrix()
 
-        if keys["belakang"] == True:		
+        if keys["depan"] == True:		
             glPushMatrix()
             if nilai_Z > -0.2:				
-                nilai_Z -= 0.01 # kurang nilai z
+                nilai_Z -= 0.05 # kurang nilai z
                 glTranslatef(0, 0, nilai_Z)
             glPopMatrix()
 
         if keys["depan_lemari"] == True:		
             glPushMatrix()
             if nilai_Y < 5:				
-                nilai_Y += 0.01 # kurang nilai Y
+                nilai_Y += 0.05 # kurang nilai Y
                 glTranslatef(0, 0, nilai_Y)
             glPopMatrix()
 
         if keys["belakang_lemari"] == True:		
             glPushMatrix()
             if nilai_Y > 0:				
-                nilai_Y -= 0.01 # kurang nilai Y
+                nilai_Y -= 0.05 # kurang nilai Y
                 glTranslatef(0, 0, nilai_Y)
             glPopMatrix()	
 
